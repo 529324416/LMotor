@@ -19,6 +19,9 @@ folder_templates = f"{folder_root}/src/templates".lower()
 folder_gallery = f"{folder_static}/gallery".lower()
 folder_database = f"{folder_root}/datas".lower()
 
+if not os.path.exists(folder_gallery):
+    os.mkdir(folder_gallery)
+
 if not os.path.exists(folder_database):
     os.mkdir(folder_database)
 
