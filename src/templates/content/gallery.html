@@ -1,0 +1,39 @@
+<div class="grid grid-flow-dense grid-cols-8 w-full h-full gap-4">
+    {% for atlas in atlas_list %}
+
+        <div class="w-full bg-base-100 rounded-md shadow-md place-content-end flex flex-col" style="aspect-ratio: 0.56;">
+            <figure class="h-3/4 w-full top-0 ">
+                <a href="ui/content/atlas/{{ atlas['uid'] }}">
+                    <img class="rounded-t-md w-full h-full object-cover" src="{{ url_for('static', path=atlas['face_path']) }}"/>
+                </a>
+            </figure>
+            <div class="h-auto rounded-b-md p-3 w-full flex flex-col gap-2 container">
+                <a class="constraint-text max-h-12 prose text-sm text-base-content">{{ atlas['title'] }}</a>
+                <div class="flex flex-row place-content-end w-full">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier"> 
+                                    <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                </g>
+                            </svg>    
+                        </div>
+                        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-md bg-base-100 rounded-md w-52">
+                            {% if atlas['has_link'] %}
+                                <li>
+                                    <a class="prose text-base-content" href="{{ atlas['source_link'] }}">source link</a>
+                                </li>
+                            {% endif %}
+                            <li>
+                                <a class="text-error prose" onclick="delete_atlas('{{ atlas['uid']}}')">Delete</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+</div>

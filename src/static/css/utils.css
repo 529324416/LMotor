@@ -1,0 +1,24 @@
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    overflow: hidden;
+}
+
+.constraint-text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.h-screen-sub-16{
+    height: calc(100vh - 4rem);
+}
+.h-screen-sub-32{
+    height: calc(100vh - 8rem);
+}
