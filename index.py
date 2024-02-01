@@ -17,7 +17,10 @@ folder_root = os.path.dirname(os.path.abspath(__file__)).replace("\\", "/").lowe
 folder_static = f"{folder_root}/src/static".lower()
 folder_templates = f"{folder_root}/src/templates".lower()
 folder_gallery = f"{folder_static}/gallery".lower()
-folder_database = f"{folder_root}/datas/".lower()
+folder_database = f"{folder_root}/datas".lower()
+
+if not os.path.exists(folder_database):
+    os.mkdir(folder_database)
 
 # initialize system
 app = FastAPI(title="LMotor", description="Provide Image Downloaded and Viewer Function", version="1.0.0")
